@@ -20,6 +20,7 @@ RUN rpm --import "$CURATOR_KEY_URL" && rpm -iv "$CURATOR_RPM_URL"
 
 # Files
 COPY ./root /
+RUN chmod +x /etc/cron.daily/*.sh
 
 # Execution
 CMD ["/usr/sbin/crond", "-n", "-m", "off"]
